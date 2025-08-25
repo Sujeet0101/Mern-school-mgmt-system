@@ -1,6 +1,5 @@
 const bcrypt = require("bcrypt");
-const School = require("../models/superAdmin/School");
-const User = require("../models/superAdmin/User");
+const { School, User } = require("../models");
 const sequelize = require("../config/db");
 
 exports.registerSchool = async (req, res) => {
