@@ -1,13 +1,16 @@
 const express = require('express');
 const sequelize = require('./config/db');
 const superAdminRoutes = require('./routes/superAdminRoutes');
+const schoolAdminRoutes = require('./routes/schoolAdminRoutes');
+const authRoutes = require('./routes/authroutes');
 
 
 const app = express();
 app.use(express.json());
 
 //Routes
-app.use('/api/auth', superAdminRoutes);
+app.use('/api/auth', superAdminRoutes, authRoutes);
+app.use('/api/school-admin', schoolAdminRoutes);
 
 //Test DB connection
 sequelize.authenticate()
